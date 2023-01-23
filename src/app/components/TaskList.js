@@ -13,9 +13,9 @@ function TaskList(){
     }
 
   return (
-    <div className="w-4/6 ">
+    <div className="w-5/6 ">
 
-        <header className="flex justify-between items-center py-4">
+        <header className="flex justify-between items-center py-4 ">
             <h1>tasks {tasks.length}</h1>
             <Link to='/create-task' className="bg-indigo-600 px-2 py-1 rounded-md text-md">
 
@@ -23,11 +23,12 @@ function TaskList(){
 
             </Link>
         </header>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {
                 tasks.map(task => (
-                    <div key={task.id} className="bg-neutral-800 p-4 rounded-md" > 
-                        <div className="flex justify-between">
+                    <div key={task.id} className="bg-neutral-800 p-4 rounded-md h-235 min-h-full " > 
+                     <p className="w-235 min-w-full break-words">{task.description}</p>   
+                        <div className="flex-col ">
                             <h3>{task.title}</h3>
                             <div className="flex gap-x-2">
                                 <Link to={`/edit-task/${task.id}`}
@@ -43,10 +44,13 @@ function TaskList(){
                                 
                             </div>
                         </div>                       
-                        <p>{task.description}</p>                   
+                              
                     </div>
+                    
                 ))
+                
             }
+            
         </div>
      
     </div>
